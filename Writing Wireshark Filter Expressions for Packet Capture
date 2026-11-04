@@ -1,0 +1,32 @@
+Display-filter comparison and logical operators
+Operator Alias Meaning Example
+== eq Equal to ip.addr == 10.0.0.1
+!= ne Not equal to tcp.port != 22
+> gt Greater than frame.len > 1000
+< lt Less than tcp.window_size < 500
+&& and Logical AND ip.src==10.0.0.1 && 
+tcp.port==80
+|| or Logical OR dns || http
+! not Logical NOT !arp
+
+Worked Examples of Filter Expressions
+(a) Capture filters (typed in Capture > Options)
+host 192.168.1.10 # all traffic to/from this host
+net 192.168.1.0/24 # entire subnet
+src host 192.168.1.10 # only packets FROM this host
+dst port 53 # traffic going TO port 53 (DNS)
+tcp port 443 # only HTTPS/TLS traffic
+udp # only UDP packets
+not arp and not broadcast # ignore ARP and broadcasts
+tcp port 80 and host 192.168.1.10 # combined condition
+(b) Display filters (typed in the green filter bar)
+ip.addr == 192.168.1.10 # any packet with this IP (src or dst)
+ip.src == 192.168.1.10 # only where this IP is the source
+tcp.port == 80 # HTTP over TCP
+http # only HTTP protocol packets
+dns # only DNS packets
+http.request.method == "GET" # only HTTP GET requests
+tcp.flags.syn == 1 && tcp.flags.ack == 0 # TCP connection starts (SYN)
+tcp.analysis.retransmission # retransmitted TCP segments
+ip.addr == 192.168.1.10 && tcp.port == 443 # host AND port together
+frame contains "password" # packets whose bytes contain the text
