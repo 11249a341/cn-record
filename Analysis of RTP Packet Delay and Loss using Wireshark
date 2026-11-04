@@ -1,0 +1,33 @@
+Key metrics Wireshark reports
+Metric Meaning Acceptable value 
+(voice)
+Max / Mean Jitter Variation in packet arrival time < 30 ms mean is good
+Lost packets (%) Sequence-number gaps as a 
+fraction
+< 1 % is good; > 5 % is 
+poor
+Delta (ms) Time since previous packet in the 
+stream
+~20 ms for G.711 at 50 
+pkt/s
+Skew Drift between expected & actual 
+arrival
+Near 0 is
+
+Useful Display Filters
+rtp # show only RTP media packets
+rtcp # show only RTP control/report packets
+rtp.ssrc == 0x12345678 # a single media stream by its SSRC id
+rtp.marker == 1 # talk-spurt / frame boundary markers
+sip # the SIP signalling that set up the call
+
+SAMPLE OBSERVATION TABLE:
+Fill in the values read from the RTP Streams and Analyze windows for your own capture:
+Parameter Stream A → B Stream B → A
+Codec / Payload G.711 (PCMU) G.711 (PCMU)
+Total packets 1500 1498
+Lost packets (count / %) 6 / 0.40 % 2 / 0.13 %
+Max jitter (ms) 18.4 12.1
+Mean jitter (ms) 6.2 4.9
+Max delta (ms) 42.7 31.5
+Quality assessment Good Good
