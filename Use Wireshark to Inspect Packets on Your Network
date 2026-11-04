@@ -1,0 +1,21 @@
+Layer Protocol example What Wireshark shows
+Physical/Data-Link Ethernet II Source & destination MAC 
+addresses
+Network IPv4 / IPv6 Source & destination IP addresses, 
+TTL
+Transport TCP / UDP Port numbers, sequence & ack 
+numbers, flags
+Application HTTP, DNS, TLS Requests, responses, queries, 
+payload
+
+SAMPLE OBSERVATION TABLE:
+Packet 
+No.
+Source IP Destination IP Protocol Info
+1 192.168.1.5 192.168.1.1 DNS Standard query A 
+www.google.com
+2 192.168.1.1 192.168.1.5 DNS Response A 142.250.x.x
+3 192.168.1.5 142.250.x.x TCP SYN → connection 
+request
+4 142.250.x.x 192.168.1.5 TCP SYN, ACK → accepted
+5 192.168.1.5 142.250.x.x ICMP Echo (ping) request
