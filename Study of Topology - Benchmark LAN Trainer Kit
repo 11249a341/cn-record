@@ -1,0 +1,59 @@
+Addressing plan
+Topology Arrangement Advantages Disadvantages
+Bus All nodes share one 
+common backbone cable 
+with terminators at both 
+ends.
+Simple; least cabling; 
+cheap.
+One cable fault stops 
+the whole network; hard 
+to troubleshoot.
+Star Every node connects to a 
+central hub/switch.
+Easy to add/remove 
+nodes; single node 
+fault does not affect 
+others.
+Central device failure 
+downs the whole 
+network; more cable.
+Ring Nodes form a closed loop; 
+data passes node to node.
+Orderly, predictable 
+data flow; no collisions 
+with token passing.
+A single break can halt 
+the ring; adding nodes 
+disrupts it.
+Mesh Every node links directly to 
+every other node.
+Highly reliable; 
+multiple paths; faulttolerant.
+Very expensive; huge 
+amount of cabling.
+Tree Groups of star networks 
+joined to a bus backbone 
+(hierarchy).
+Scalable; good for 
+large structured 
+networks.
+Backbone failure 
+affects large sections; 
+complex.
+Hybrid Combination of two or 
+more of the above.
+Flexible; tailored to 
+needs.
+Design and 
+management are 
+complex and costly.
+
+SAMPLE OBSERVATION TABLE:
+Topology Cables used (for n 
+nodes) Effect of one link failure Ease of adding a 
+node
+Bus n + backbone Whole segment may fail Easy
+Star n Only that node affected Very easy
+Ring n Ring flow interrupted Difficult
+Mesh n(n−1)/2 No effect (alternate paths) Difficul
